@@ -1,7 +1,19 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    ViewBag.Title = "Shinogi";
 }
 
-<h2>Index</h2>
+<div id="applicationHost">
+    @Html.Partial("_Splash")
+</div>
+
+@Scripts.Render("~/Scripts/vendor")
+
+@if (HttpContext.Current.IsDebuggingEnabled)
+{
+    <script type="text/javascript" src="~/Scripts/require.js" data-main="@Url.Content("~/App/main")"></script>
+}
+else
+{
+    <script type="text/javascript" src="~/build/app/main-built.js"></script>
+}
 
